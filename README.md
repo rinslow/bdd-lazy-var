@@ -1,11 +1,6 @@
-# BDD + lazy variable definition (aka rspec)
+# JSpec
 
-[![BDD Lazy Var NPM version](https://badge.fury.io/js/bdd-lazy-var.svg)](http://badge.fury.io/js/bdd-lazy-var)
-[![Build Status](https://travis-ci.org/stalniy/bdd-lazy-var.svg?branch=master)](https://travis-ci.org/stalniy/bdd-lazy-var)
-[![Maintainability](https://api.codeclimate.com/v1/badges/65f79ae494101ba5f757/maintainability)](https://codeclimate.com/github/stalniy/bdd-lazy-var/maintainability)
-[![BDD Lazy Var Join the chat at https://gitter.im/bdd-lazy-var/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bdd-lazy-var/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Provides "ui" for testing frameworks such as [mocha][mocha], [jasmine][jasmine] and [jest][jest] which allows to define lazy variables and subjects.
+A maintained fork of [jspec](https://github.com/stalniy/jspec).
 
 ## Purpose
 
@@ -280,7 +275,7 @@ Also it generates messages for you based on passed in function body. The example
 ## Installation
 
 ```bash
-npm install bdd-lazy-var --save-dev
+npm install jspec --save-dev
 ```
 
 <details>
@@ -288,7 +283,7 @@ npm install bdd-lazy-var --save-dev
 
 #### Command line
 ```sh
-mocha -u bdd-lazy-var/global
+mocha -u jspec/global
 ```
 
 #### In JavaScript
@@ -299,7 +294,7 @@ See [Using Mocha programatically](https://github.com/mochajs/mocha/wiki/Using-mo
 const Mocha = require('mocha');
 
 const mocha = new Mocha({
-  ui: 'bdd-lazy-var/global' // bdd-lazy-var or bdd-lazy-var/getter
+  ui: 'jspec/global' // jspec or jspec/getter
 });
 
 mocha.addFile(...)
@@ -308,7 +303,7 @@ mocha.run(...)
 // !!! Important the next code should be written in a separate file
 // later you can either use `get` and `def` as global functions
 // or export them from corresponding module
-const { get, def } = require('bdd-lazy-var/global');
+const { get, def } = require('jspec/global');
 
 describe('Test', () => {
   // ...
@@ -326,8 +321,8 @@ module.exports = function(config) {
     // ....
     client: {
       mocha: {
-        ui: 'bdd-lazy-var/global',
-        require: [require.resolve('bdd-lazy-var/global')]
+        ui: 'jspec/global',
+        require: [require.resolve('jspec/global')]
       }
     }
   });
@@ -341,13 +336,13 @@ module.exports = function(config) {
 #### Command line
 
 ```sh
-jasmine --helper=node_modules/bdd-lazy-var/global.js
+jasmine --helper=node_modules/jspec/global.js
 ```
 
 or using `spec/spec_helper.js`
 
 ```js
-require('bdd-lazy-var/global');
+require('jspec/global');
 
 // ... other helper stuff
 ```
@@ -368,7 +363,7 @@ require('jasmine-core');
 // !!! Important the next code should be written in a separate file
 // later you can either use `get` and `def` as global functions
 // or export them from corresponding module
-const { get, def } = require('bdd-lazy-var/global');
+const { get, def } = require('jspec/global');
 
 describe('Test', () => {
   // ...
@@ -384,7 +379,7 @@ module.exports = function(config) {
   config.set({
     // ....
     files: [
-      'node_modules/bdd-lazy-var/global.js',
+      'node_modules/jspec/global.js',
       // ... your specs here
     ]
   });
@@ -406,7 +401,7 @@ jest
 In case you want to use global `get` and `def`
 
 ```sh
-jest --setupTestFrameworkScriptFile bdd-lazy-var/global
+jest --setupTestFrameworkScriptFile jspec/global
 ```
 
 #### In JavaScript
@@ -414,16 +409,16 @@ jest --setupTestFrameworkScriptFile bdd-lazy-var/global
 ```js
 // later you can either use `get` and `def` as global functions
 // or export them from relative module
-const { get, def } = require('bdd-lazy-var/global');
+const { get, def } = require('jspec/global');
 ```
 </details>
 
 ## Dialects
 
-`bdd-lazy-var` provides 3 different dialects:
-* access variables by referencing `$<variableName>` (the recommended one, available by requiring `bdd-lazy-var/global`)
-* access variables by referencing `get.<variableName>` (more strict, available by requiring `bdd-lazy-var/getter`)
-* access variables by referencing `get('<variableName>')` (the most strict and less readable way, available by requiring `bdd-lazy-var`)
+`jspec` provides 3 different dialects:
+* access variables by referencing `$<variableName>` (the recommended one, available by requiring `jspec/global`)
+* access variables by referencing `get.<variableName>` (more strict, available by requiring `jspec/getter`)
+* access variables by referencing `get('<variableName>')` (the most strict and less readable way, available by requiring `jspec`)
 
 All are bundled as UMD versions. Each dialect is compiled in a separate file and should be required or provided for testing framework.
 
@@ -444,7 +439,7 @@ For more information, read [the article on Medium](https://medium.com/@sergiy.st
 
 ## TypeScript Notes
 
-It's also possible to use `bdd-lazy-var` with TypeScript. The best integrated dialects are `get` and `getter`. To do so, you need either include corresponding definitions in your [tsconfig.json](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html) or use ES6 module system.
+It's also possible to use `jspec` with TypeScript. The best integrated dialects are `get` and `getter`. To do so, you need either include corresponding definitions in your [tsconfig.json](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html) or use ES6 module system.
 
 <details>
   <summary>tsconfig.json</summary>
@@ -459,9 +454,9 @@ It's also possible to use `bdd-lazy-var` with TypeScript. The best integrated di
   },
   "include": [
     "src/**/*",
-    "node_modules/bdd-lazy-var/index.d.ts" // for `get('<variableName>')` syntax
+    "node_modules/jspec/index.d.ts" // for `get('<variableName>')` syntax
     // or
-    "node_modules/bdd-lazy-var/getter.d.ts" // for `get.<variableName>` syntax
+    "node_modules/jspec/getter.d.ts" // for `get.<variableName>` syntax
   ]
 }
 ```
@@ -471,9 +466,9 @@ It's also possible to use `bdd-lazy-var` with TypeScript. The best integrated di
   <summary>ES6 module system</summary>
 
 ```js
-import { get, def } from 'bdd-lazy-var'
+import { get, def } from 'jspec'
 // or
-import { get, def } from 'bdd-lazy-var/getter'
+import { get, def } from 'jspec/getter'
 
 describe('My Test', () => {
   // ....
@@ -489,7 +484,7 @@ It's a bit harder to work with `global` dialect. It creates global getters on th
   <summary>TypeScript and global dialect</summary>
 
 ```ts
-import { def } from 'bdd-lazy-var/global'
+import { def } from 'jspec/global'
 
 describe('My Test', () => {
   declare let $value: number // <-- need to place this declarations manually
@@ -603,4 +598,4 @@ Want to file a bug, contribute some code, or improve documentation? Excellent! R
 [mocha]: https://mochajs.org
 [jasmine]: https://jasmine.github.io/2.0/introduction.html
 [jest]: https://facebook.github.io/jest/docs/en/getting-started.html
-[contributing]: https://github.com/stalniy/bdd-lazy-var/blob/master/CONTRIBUTING.md
+[contributing]: https://github.com/stalniy/jspec/blob/master/CONTRIBUTING.md

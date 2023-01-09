@@ -64,3 +64,4 @@ index.js
 global.js
 getter.js
 /*.js.map
+.idea/*

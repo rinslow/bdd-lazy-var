@@ -31,7 +31,7 @@ Please provide steps to reproduce for found bug (using http://plnkr.co or simila
 ### <a name="submit-pr"></a> Submitting a Pull Request (PR)
 Before you submit your Pull Request (PR) consider the following guidelines:
 
-* Search [GitHub](https://github.com/stalniy/bdd-lazy-var/pulls) for an open or closed PR
+* Search [GitHub](https://github.com/stalniy/jspec/pulls) for an open or closed PR
   that relates to your submission. You don't want to duplicate effort.
 * Make your changes in a new git branch:
 
@@ -48,7 +48,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
     ```shell
     git push origin my-fix-branch
     ```
-* In GitHub, send a pull request to `bdd-lazy-var:master`.
+* In GitHub, send a pull request to `jspec:master`.
 * If somebody from project contributors suggest changes then:
   * Make the required updates.
   * Re-run all test suites to ensure tests are still passing.
@@ -70,6 +70,6 @@ The project have very precise rules over how git commit messages can be formatte
 The commit message format is borrowed from Angular projects and you can find [more details in this document][commit-message-format]
 
 [commit-message-format]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#
-[github]: https://github.com/stalniy/bdd-lazy-var
-[gitter]: https://gitter.im/bdd-lazy-var/Lobby
+[github]: https://github.com/stalniy/jspec
+[gitter]: https://gitter.im/jspec/Lobby
 [js-style-guide]: https://github.com/airbnb/javascript

@@ -1,5 +1,5 @@
 {
-  "name": "bdd-lazy-var",
+  "name": "jspec",
   "version": "2.6.1",
   "author": "Sergii Stotskyi",
   "description": "Provides \"ui\" for testing frameworks such as mocha/jasmine which allows to define lazy variables and subjects",
@@ -7,7 +7,7 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git@github.com:stalniy/bdd-lazy-var.git"
+    "url": "git@github.com:stalniy/jspec.git"
   },
   "keywords": [
     "mocha.js",
@@ -22,7 +22,7 @@
     "rspec"
   ],
   "bugs": {
-    "url": "https://github.com/stalniy/bdd-lazy-var/issues"
+    "url": "https://github.com/stalniy/jspec/issues"
   },
   "main": "./index",
   "peerDependencies": {
@@ -78,9 +78,9 @@
     "test.mocha-global": "npm run mocha -- -u global.js spec/global_defs_spec.js",
     "test.mocha-getter": "npm run mocha -- -u getter.js spec/getter_defs_spec.js",
     "test.mocha": "npm run test.mocha-ui && npm run test.mocha-global && npm run test.mocha-getter",
-    "test.browser-mocha-ui": "karma start -u bdd-lazy-var --src index.js --specs spec/interface_spec.js tools/karma.config.js",
-    "test.browser-mocha-global": "karma start -u bdd-lazy-var/global --src global.js --specs spec/global_defs_spec.js,spec/interface_spec.js tools/karma.config.js",
-    "test.browser-mocha-getter": "karma start -u bdd-lazy-var/getter --src getter.js --specs spec/getter_defs_spec.js,spec/interface_spec.js tools/karma.config.js",
+    "test.browser-mocha-ui": "karma start -u jspec --src index.js --specs spec/interface_spec.js tools/karma.config.js",
+    "test.browser-mocha-global": "karma start -u jspec/global --src global.js --specs spec/global_defs_spec.js,spec/interface_spec.js tools/karma.config.js",
+    "test.browser-mocha-getter": "karma start -u jspec/getter --src getter.js --specs spec/getter_defs_spec.js,spec/interface_spec.js tools/karma.config.js",
     "test.mocha-in-browser": "npm run test.browser-mocha-ui && npm run test.browser-mocha-global && npm run test.browser-mocha-getter",
     "test.jasmine-ui": "node tools/jasmine index.js interface_spec.js",
     "test.jasmine-global": "node tools/jasmine global.js global_defs_spec.js",
